@@ -6,7 +6,6 @@ public class Main {
         Scanner console = new Scanner(System.in);
         System.out.print("Количество строк: ");
         int linesCount = console.nextInt();
-        String[] lines = new String[linesCount];
         int maxUniqueLetters = 0;
         String mostVariableLine = "";
         Scanner console2 = new Scanner(System.in);
@@ -14,7 +13,6 @@ public class Main {
             StringBuilder uniqueLetters = new StringBuilder();
             System.out.print("Строка " + (i + 1) + ": ");
             String currentLine = console2.nextLine();
-            lines[i] = currentLine;
             for (int j= 0; j < currentLine.length(); j++) {
                 if (!uniqueLetters.toString().contains(String.valueOf(currentLine.charAt(j)))) {
                     uniqueLetters.append(currentLine.charAt(j));
@@ -22,7 +20,7 @@ public class Main {
             }
             if (maxUniqueLetters < uniqueLetters.toString().length()) {
                 maxUniqueLetters = uniqueLetters.toString().length();
-                mostVariableLine = lines[i];
+                mostVariableLine = currentLine;
             }
         }
         System.out.println("Ответ: " + mostVariableLine);
